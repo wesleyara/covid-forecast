@@ -12,10 +12,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
+      "no-undef": "off",
         "linebreak-style": [
             "error",
             "unix"
