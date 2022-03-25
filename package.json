@@ -1,5 +1,5 @@
 {
-  "name": "test-d3-covid19",
+  "name": "covid-forecast",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.5.1",
-    "prettier": "^2.6.0"
+    "prettier": "^2.6.0",
+    "readline-sync": "^1.4.10"
   }
 }
