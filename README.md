@@ -28,7 +28,7 @@ $ npm test
 
 ## Docs
 
-Toda informação sobre o processo de criação desse software está disponível no [DESCRIPTION.md](/docs/Description.md)
+Toda informação sobre o processo de criação desse software está disponível no [DESCRIPTION.md](/docs/DESCRIPTION.md)
 
 ### Licença
 Covid Forecast está sob a licença MIT. Olhe o arquivo [LICENSE](/LICENSE) para mais detalhes.
