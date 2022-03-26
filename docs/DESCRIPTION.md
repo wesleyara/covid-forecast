@@ -10,7 +10,7 @@ Em um dia qualquer, essa população recebe duas pessoas que contrairam o COVID-
 
 ### Modelo:
 ```latex
-x(t) = (x_0 * (n + x_0)) / (x_0 + ne^(-k * (n + x_0) * t)))
+x(t) = (x_0 * (n + x_0)) / (x_0 + n * e^(-k * (n + x_0) * t)))
 ```
 onde t é o tempo, x_0 é o números de casos iniciais, n é a população total e k é a constante de proporcionalidade.
 
@@ -41,6 +41,7 @@ Primeiramente criei duas constantes que representavam o número populacional e a
 ```javascript
 const POPULATION = 50000;
 const RATE = -0.00000493723;
+const INFECTED = 2;
 ```
 A partir dessa informação, criei uma função que recebe um número de dias e retorna o número de casos:
 ```javascript
@@ -65,14 +66,14 @@ const dataDays = [];
   for (let i = 0; i < d; i++) {
       const result =
         Math.floor(
-          100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * (i + 1))),
+          100004 / (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * (i + 1))),
         ) -
         Math.floor(
-          100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * i)),
+          100004 / (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * i)),
         );
 
       const total = Math.floor(
-        100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * (i + 1))),
+        100004 / (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * (i + 1))),
       );
 
       dataDays.push(`${i + 1} -> ${result}, total de casos: ${total}`);
@@ -96,14 +97,14 @@ Para adicionar mais complexidade ao código, levei em consideração uma variáv
     if (i < 13) {
       const result =
         Math.floor(
-          100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * (i + 1))),
+          100004 / (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * (i + 1))),
         ) -
         Math.floor(
-          100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * i)),
+          100004 / (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * i)),
         );
 
       const total = Math.floor(
-        100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * (i + 1))),
+        100004 / (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * (i + 1))),
       );
 
       dataDays.push(`${i + 1} -> ${result}, total de casos: ${total}`);
@@ -112,7 +113,7 @@ Para adicionar mais complexidade ao código, levei em consideração uma variáv
     } else {
       const total = Math.floor(
         (100000 - peopleCured[i - 13] * 2) /
-          (2 +
+          (INFECTED +
             (50000 - peopleCured[i - 13]) *
               Math.exp((POPULATION - peopleCured[i - 13]) * RATE * (i + 1))),
       );
@@ -120,13 +121,13 @@ Para adicionar mais complexidade ao código, levei em consideração uma variáv
       const result =
         Math.floor(
           (100000 - peopleCured[i - 13] * 2) /
-            (2 +
+            (INFECTED +
               (50000 - peopleCured[i - 13]) *
                 Math.exp((POPULATION - peopleCured[i - 13]) * RATE * (i + 1))),
         ) -
         Math.floor(
           (100000 - peopleCured[i - 13] * 2) /
-            (2 +
+            (INFECTED +
               (50000 - peopleCured[i - 13]) *
                 Math.exp((POPULATION - peopleCured[i - 13]) * RATE * i)),
         );

@@ -1,5 +1,6 @@
 const POPULATION = 50000;
 const RATE = -0.00000493723;
+const INFECTED = 2;
 
 module.exports = function forestCovid(d) {
   const dataDays = [];
@@ -13,14 +14,19 @@ module.exports = function forestCovid(d) {
     if (i < 13) {
       const result =
         Math.floor(
-          100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * (i + 1))),
+          100004 /
+            (INFECTED +
+              50000 * Math.exp((POPULATION + INFECTED) * RATE * (i + 1))),
         ) -
         Math.floor(
-          100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * i)),
+          100004 /
+            (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * i)),
         );
 
       const total = Math.floor(
-        100004 / (2 + 50000 * Math.exp((POPULATION + 2) * RATE * (i + 1))),
+        100004 /
+          (INFECTED +
+            50000 * Math.exp((POPULATION + INFECTED) * RATE * (i + 1))),
       );
 
       dataDays.push(`${i + 1} -> ${result}, total de casos: ${total}`);
@@ -29,7 +35,7 @@ module.exports = function forestCovid(d) {
     } else {
       const total = Math.floor(
         (100000 - peopleCured[i - 13] * 2) /
-          (2 +
+          (INFECTED +
             (50000 - peopleCured[i - 13]) *
               Math.exp((POPULATION - peopleCured[i - 13]) * RATE * (i + 1))),
       );
@@ -37,13 +43,13 @@ module.exports = function forestCovid(d) {
       const result =
         Math.floor(
           (100000 - peopleCured[i - 13] * 2) /
-            (2 +
+            (INFECTED +
               (50000 - peopleCured[i - 13]) *
                 Math.exp((POPULATION - peopleCured[i - 13]) * RATE * (i + 1))),
         ) -
         Math.floor(
           (100000 - peopleCured[i - 13] * 2) /
-            (2 +
+            (INFECTED +
               (50000 - peopleCured[i - 13]) *
                 Math.exp((POPULATION - peopleCured[i - 13]) * RATE * i)),
         );
