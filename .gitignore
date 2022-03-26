@@ -1,1 +1,44 @@
-/node_modules
+# Linux
+*~
+
+# Node.js
+node_modules
+.node_history
+package-lock.json
+**/package-lock.json
+!docs/package-lock.json
+*.heapsnapshot
+
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+
+# Misc.
+*#
+.idea
+nbproject
+.vscode/
+
+# Tests
+coverage
+
+# Visual Studio Code
+front-workspace.code-workspace
+.yarn
+.yarnrc
