@@ -2,7 +2,8 @@ const forestCovid = require("../index");
 
 describe("Preview Covid", () => {
   test("Verificar 10 dias", () => {
-    expect(forestCovid(10)).toStrictEqual([
+    const result = forestCovid(10);
+    const expected = [
       "1 -> 0, total de casos: 2",
       "2 -> 1, total de casos: 3",
       "3 -> 1, total de casos: 4",
@@ -13,14 +14,16 @@ describe("Preview Covid", () => {
       "8 -> 3, total de casos: 14",
       "9 -> 4, total de casos: 18",
       "10 -> 5, total de casos: 23",
-    ]);
+    ];
+
+    expect(result).toEqual(expected);
   });
 
   test("Verificar 0 dias", () => {
-    expect(forestCovid(0)).toBe(0);
+    expect(forestCovid(0)).toEqual([]);
   });
 
   test("Verificar dias inválidos", () => {
-    expect(forestCovid(-10)).toBe(0);
+    expect(forestCovid(-10)).toEqual([]);
   });
 });

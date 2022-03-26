@@ -2,12 +2,12 @@ const POPULATION = 50000;
 const RATE = -0.00000493723;
 
 module.exports = function forestCovid(d) {
-  if (d <= 1) {
-    return 0;
-  }
-
   const dataDays = [];
   const peopleCured = [];
+
+  if (d <= 0) {
+    return dataDays;
+  }
 
   for (let i = 0; i < d; i++) {
     if (i < 13) {
