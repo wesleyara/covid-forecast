@@ -50,13 +50,17 @@ function forestCovid(d) {
 ```
 Dentro da função a primeira coisa que fiz foi criar uma condicional onde eu possa verificar os valores para d <= 0.
 ```javascript
-  if (d <= 1) {
-    return 0;
+const dataDays = [];
+  if (d <= 0) {
+    return dataDays;
   }
 ```
 A partir daí, eu criei um loop que vai de 0 até o valor de d, onde a cada passagem do loop, era alterado o valor de t dentro do modelo matemático, e eu fiz a diferença entre o valor de t e t + 1, para que o valor adicionado ao array, fosse exatamente o número de caso daquele dia em questão.
 ```javascript
 const dataDays = [];
+  if (d <= 0) {
+    return dataDays;
+  }
 
   for (let i = 0; i < d; i++) {
       const result =
@@ -84,6 +88,9 @@ Para adicionar mais complexidade ao código, levei em consideração uma variáv
 ```javascript
   const dataDays = [];
   const peopleCured = [];
+  if (d <= 0) {
+    return dataDays;
+  }
 
   for (let i = 0; i < d; i++) {
     if (i < 13) {

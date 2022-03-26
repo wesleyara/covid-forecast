@@ -4,19 +4,61 @@ O Covid Forecast é um software livre que usa modelagem matemática para prever 
 
 ## Como usar o Covid Forecast?
 
-### Iniciando
+### Iniciando com node
 ```sh
 # Clone o repositório
 $ git clone https://github.com/wesleyara/covid-forecast.git
 
 # Instale as dependências:
 $ npm install
-```
 
-### Iniciando com npm
-```sh
 # Execute a aplicação:
 $ npm start
+
+# Execute os testes:
+$ npm test
+```
+
+### Iniciando com Docker (Windows)
+```sh
+# Clone o repositório
+$ git clone https://github.com/wesleyara/covid-forecast.git
+
+# Crie a imagem
+$ docker build -t --rm covid-forecast .
+
+# Execute o container:
+$ docker run -it --rm covid-forecast bash
+
+# Execute os testes:
+$ npm test
+
+# Execute a aplicação:
+$ npm start
+
+# Remova a imagem
+$ docker rmi covid-forecast
+```
+
+### Iniciando com Docker (Linux)
+```sh
+# Clone o repositório
+$ git clone https://github.com/wesleyara/covid-forecast.git
+
+# Crie a imagem
+$ sudo docker build -t covid-forecast .
+
+# Execute o container:
+$ sudo docker run -it --rm covid-forecast bash
+
+# Execute os testes:
+$ npm test
+
+# Execute a aplicação:
+$ npm start
+
+# Remova a imagem
+$ sudo docker rmi covid-forecast
 ```
 
 ## Testes:
