@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node example.js",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.js\"",
     "test": "jest --verbose"
   },
   "author": "Wesley Araujo",
