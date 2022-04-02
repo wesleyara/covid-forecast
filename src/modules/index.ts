@@ -1,8 +1,4 @@
-const POPULATION = 50000;
-const RATE = -0.00000493723;
-const INFECTED = 2;
-
-module.exports = function forestCovid(d: number) {
+export function forecastCovid(d: number, n: number, x0: number) {
   const dataDays: number[] = [];
   const peopleCured: number[] = [];
 
@@ -10,18 +6,23 @@ module.exports = function forestCovid(d: number) {
     return dataDays;
   }
 
+  const xT = x0 * 1.28;
+
+  const step1 = x0 * (n + x0);
+
+  const step2 = step1 - xT * x0;
+
+  const step3 = n * xT;
+
+  const step5 = step2 / step3;
+
+  const k = -(-1 / (n + x0)) * Math.log(step5);
+
   for (let i = 0; i < d; i++) {
     if (i < 13) {
       const result =
-        Math.floor(
-          100004 /
-            (INFECTED +
-              50000 * Math.exp((POPULATION + INFECTED) * RATE * (i + 1))),
-        ) -
-        Math.floor(
-          100004 /
-            (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * i)),
-        );
+        Math.floor(step1 / (x0 + n * Math.exp((n + x0) * k * (i + 1)))) -
+        Math.floor(step1 / (x0 + n * Math.exp((n + x0) * k * i)));
 
       dataDays.push(result);
 
@@ -29,16 +30,16 @@ module.exports = function forestCovid(d: number) {
     } else {
       const result: number =
         Math.floor(
-          (100000 - peopleCured[i - 13] * 2) /
-            (INFECTED +
-              (50000 - peopleCured[i - 13]) *
-                Math.exp((POPULATION - peopleCured[i - 13]) * RATE * (i + 1))),
+          (step1 - x0 - peopleCured[i - 13] * 2) /
+            (x0 +
+              (n - peopleCured[i - 13]) *
+                Math.exp((n - peopleCured[i - 13]) * k * (i + 1))),
         ) -
         Math.floor(
-          (100000 - peopleCured[i - 13] * 2) /
-            (INFECTED +
-              (50000 - peopleCured[i - 13]) *
-                Math.exp((POPULATION - peopleCured[i - 13]) * RATE * i)),
+          (step1 - x0 - peopleCured[i - 13] * 2) /
+            (x0 +
+              (n - peopleCured[i - 13]) *
+                Math.exp((n - peopleCured[i - 13]) * k * i)),
         );
 
       peopleCured.push(result);
@@ -48,4 +49,4 @@ module.exports = function forestCovid(d: number) {
   }
 
   return dataDays;
-};
+}
