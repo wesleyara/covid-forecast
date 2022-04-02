@@ -13,7 +13,7 @@ $ git clone https://github.com/wesleyara/covid-forecast.git
 $ npm install
 
 # Execute a aplicação:
-$ npm start
+$ npm dev
 
 # Execute os testes:
 $ npm test
@@ -34,7 +34,7 @@ $ docker run -it --rm covid-forecast bash
 $ npm test
 
 # Execute a aplicação:
-$ npm start
+$ npm dev
 
 # Remova a imagem
 $ docker rmi covid-forecast
@@ -55,7 +55,7 @@ $ sudo docker run -it --rm covid-forecast bash
 $ npm test
 
 # Execute a aplicação:
-$ npm start
+$ npm dev
 
 # Remova a imagem
 $ sudo docker rmi covid-forecast
