@@ -1,6 +1,30 @@
-const forestCovid = require("./modules");
-const readlineSync = require("readline-sync");
+const forecastCovid = require("./modules");
+const inquirer = require("inquirer");
 
-const days = readlineSync.question("Quantos dias você deseja prever? ");
+interface IQuestion {
+  d: number;
+  n: number;
+  x0: number;
+}
 
-console.log(forestCovid(days));
+inquirer
+  .prompt([
+    {
+      name: "d",
+      message: "Quantos dias deseja prever?",
+    },
+    {
+      name: "n",
+      message: "Qual o tamanho da população?",
+    },
+    {
+      name: "x0",
+      message: "Diga a quantidade inicial de infectados:",
+    },
+  ])
+  .then((answers: IQuestion) => {
+    console.log(forecastCovid(answers.d, answers.n, answers.x0));
+  })
+  .catch((err: string) => {
+    console.log(err);
+  });
