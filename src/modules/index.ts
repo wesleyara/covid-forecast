@@ -2,9 +2,9 @@ const POPULATION = 50000;
 const RATE = -0.00000493723;
 const INFECTED = 2;
 
-module.exports = function forestCovid(d) {
-  const dataDays = [];
-  const peopleCured = [];
+module.exports = function forestCovid(d: number) {
+  const dataDays: number[] = [];
+  const peopleCured: number[] = [];
 
   if (d <= 0) {
     return dataDays;
@@ -23,24 +23,11 @@ module.exports = function forestCovid(d) {
             (INFECTED + 50000 * Math.exp((POPULATION + INFECTED) * RATE * i)),
         );
 
-      const total = Math.floor(
-        100004 /
-          (INFECTED +
-            50000 * Math.exp((POPULATION + INFECTED) * RATE * (i + 1))),
-      );
-
-      dataDays.push(`${i + 1} -> ${result}, total de casos: ${total}`);
+      dataDays.push(result);
 
       peopleCured.push(result);
     } else {
-      const total = Math.floor(
-        (100000 - peopleCured[i - 13] * 2) /
-          (INFECTED +
-            (50000 - peopleCured[i - 13]) *
-              Math.exp((POPULATION - peopleCured[i - 13]) * RATE * (i + 1))),
-      );
-
-      const result =
+      const result: number =
         Math.floor(
           (100000 - peopleCured[i - 13] * 2) /
             (INFECTED +
@@ -56,7 +43,7 @@ module.exports = function forestCovid(d) {
 
       peopleCured.push(result);
 
-      dataDays.push(`${i + 1} -> ${result}, total de casos: ${total}`);
+      dataDays.push(result);
     }
   }
 
