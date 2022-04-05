@@ -26,7 +26,6 @@ inquirer
     console.log(
       forecastCovid(Number(answers.d), Number(answers.n), Number(answers.x0)),
     );
-    console.log(answers);
   })
   .catch((err: string) => {
     console.log(err);

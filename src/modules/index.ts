@@ -1,10 +1,4 @@
-interface forecastCovidProps {
-  d: number;
-  n: number;
-  x0: number;
-}
-
-module.exports = function forecastCovid({ d, n, x0 }: forecastCovidProps) {
+module.exports = function forecastCovid(d: number, n: number, x0: number) {
   const dataDays: number[] = [];
   const peopleCured: number[] = [];
 
