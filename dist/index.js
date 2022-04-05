@@ -1,5 +1,5 @@
 "use strict";
-module.exports = function forecastCovid(d, n, x0) {
+module.exports = function forecastCovid({ d, n, x0 }) {
     const dataDays = [];
     const peopleCured = [];
     const num = Math.floor((n / 3) * 2);
