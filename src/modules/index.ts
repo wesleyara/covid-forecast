@@ -2,7 +2,7 @@ export function forecastCovid(d: number, n: number, x0: number) {
   const dataDays: number[] = [];
   const peopleCured: number[] = [];
 
-  const num = Math.floor((n / 3) * 2);
+  const num = Math.floor((n * 15.82) / 100);
 
   if (d <= 0) {
     return dataDays;
