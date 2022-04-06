@@ -1,4 +1,4 @@
-const forecastCovid = require("./modules");
+const covidPredict = require("./modules");
 const inquirer = require("inquirer");
 
 interface IQuestion {
@@ -24,7 +24,11 @@ inquirer
   ])
   .then((answers: IQuestion) => {
     console.log(
-      forecastCovid(Number(answers.d), Number(answers.n), Number(answers.x0)),
+      covidPredict.forecastCovid(
+        Number(answers.d),
+        Number(answers.n),
+        Number(answers.x0),
+      ),
     );
   })
   .catch((err: string) => {

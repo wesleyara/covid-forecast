@@ -1,1 +1,1 @@
-declare const forecastCovid: any;
+declare const covidPredict: any;

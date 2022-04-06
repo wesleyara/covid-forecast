@@ -1,4 +1,4 @@
-module.exports = function forecastCovid(d: number, n: number, x0: number) {
+export function forecastCovid(d: number, n: number, x0: number) {
   const dataDays: number[] = [];
   const peopleCured: number[] = [];
 
@@ -51,4 +51,4 @@ module.exports = function forecastCovid(d: number, n: number, x0: number) {
   }
 
   return dataDays;
-};
+}
