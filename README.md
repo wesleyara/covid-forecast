@@ -2,6 +2,38 @@
 
 O Covid Forecast é um software livre que usa modelagem matemática para prever o número de casos de Covid-19.
 
+## Como usar o Covid Forecast em seus projetos?
+
+Instalando:
+```sh
+$ npm install https://github.com/wesleyara/covid-forecast
+# ou
+$ yarn add https://github.com/wesleyara/covid-forecast
+```
+
+Utilizando no Node.js:
+```js
+const covid = require('covid-forecast');
+
+// const data = covid.forecastCovid(n, d, x0) 
+// n = número total da população, d = número de dias para prever, x0 = número de casos iniciais
+const data = covid.forecastCovid(50000, 20, 2);
+console.log(data);
+// retorna um array com os números de casos para cada dia.
+```
+
+Utilizando no React:
+```js
+
+import { forecastCovid } from 'covid-forecast';
+
+// const data = covid.forecastCovid(n, d, x0) 
+// n = número total da população, d = número de dias para prever, x0 = número de casos iniciais
+const data = forecastCovid(50000, 20, 2);
+console.log(data);
+// retorna um array com os números de casos para cada dia.
+```
+
 ## Como usar o Covid Forecast?
 
 ### Iniciando com node
